@@ -1,7 +1,7 @@
 # Elk-Tutorials
 > This turotials how to quickly deploy elk environment and how to use!
 
-
+![Bash Shell](https://raw.githubusercontent.com/wh211212/master/elk-tutorials/screenshots/architecture/elk-technology-stack.png)
 
 
 
