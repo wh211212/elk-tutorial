@@ -40,6 +40,9 @@
 [![Analytics](https://ga-beacon.appspot.com/UA-XXXXX-X/welcome-page)](https://github.com/igrigorik/ga-beacon)
 
 - Awesome neaten
+
 [![awesome](https://camo.githubusercontent.com/13c4e50d88df7178ae1882a203ed57b641674f94/68747470733a2f2f63646e2e7261776769742e636f6d2f73696e647265736f726875732f617765736f6d652f643733303566333864323966656437386661383536353265336136336531353464643865383832392f6d656469612f62616467652e737667)](https://github.com/sindresorhus/awesome)
+
 - Make your own badge
-[shields](https://github.com/badges/shields)
+
+[![shields](https://camo.githubusercontent.com/5c129b1f2f21304aa10dd539959547675738afe8/68747470733a2f2f7261776769742e636f6d2f6261646765732f736869656c64732f6d61737465722f6c6f676f2e737667)](https://github.com/badges/shields)
