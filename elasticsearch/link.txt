@@ -1,0 +1,17 @@
+# elastic website
+https://www.elastic.co/
+
+# elastic the official documention
+https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html
+
+# elastic discuss
+https://discuss.elastic.co/
+
+# elastic github
+https://github.com/elastic/elasticsearch
+
+# elastic youtube
+https://www.youtube.com/channel/UCIy5GtVvLEiLik0T2bZwm7g
+
+# elasticsearch chinese community
+http://elasticsearch.cn/ 
