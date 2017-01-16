@@ -4,21 +4,6 @@
 ![elk-stack](https://github.com/wh211212/elk-tutorials/blob/master/screenshots/architecture/elk-technology-stack.png)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Badge Lists
 > Gather badges form github.
 
@@ -46,3 +31,5 @@
 - Make your own badge
 
 [![shields](https://camo.githubusercontent.com/5c129b1f2f21304aa10dd539959547675738afe8/68747470733a2f2f7261776769742e636f6d2f6261646765732f736869656c64732f6d61737465722f6c6f676f2e737667)](https://github.com/badges/shields)
+
+> This tutorials will always update!
