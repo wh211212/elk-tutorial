@@ -1,0 +1,19 @@
+1. elastic start
+[2017-03-03T11:36:26,116][WARN ][o.e.b.JNANatives         ] unable to install syscall filter:
+java.lang.UnsupportedOperationException: seccomp unavailable: CONFIG_SECCOMP not compiled into kernel, CONFIG_SECCOMP and CONFIG_SECCOMP_FILTER are needed
+        at org.elasticsearch.bootstrap.SystemCallFilter.linuxImpl(SystemCallFilter.java:363) ~[elasticsearch-5.2.2.jar:5.2.2]
+        at org.elasticsearch.bootstrap.SystemCallFilter.init(SystemCallFilter.java:638) ~[elasticsearch-5.2.2.jar:5.2.2]
+        at org.elasticsearch.bootstrap.JNANatives.tryInstallSystemCallFilter(JNANatives.java:215) [elasticsearch-5.2.2.jar:5.2.2]
+        at org.elasticsearch.bootstrap.Natives.tryInstallSystemCallFilter(Natives.java:99) [elasticsearch-5.2.2.jar:5.2.2]
+        at org.elasticsearch.bootstrap.Bootstrap.initializeNatives(Bootstrap.java:110) [elasticsearch-5.2.2.jar:5.2.2]
+        at org.elasticsearch.bootstrap.Bootstrap.setup(Bootstrap.java:203) [elasticsearch-5.2.2.jar:5.2.2]
+        at org.elasticsearch.bootstrap.Bootstrap.init(Bootstrap.java:333) [elasticsearch-5.2.2.jar:5.2.2]
+        at org.elasticsearch.bootstrap.Elasticsearch.init(Elasticsearch.java:121) [elasticsearch-5.2.2.jar:5.2.2]
+        at org.elasticsearch.bootstrap.Elasticsearch.execute(Elasticsearch.java:112) [elasticsearch-5.2.2.jar:5.2.2]
+        at org.elasticsearch.cli.SettingCommand.execute(SettingCommand.java:54) [elasticsearch-5.2.2.jar:5.2.2]
+        at org.elasticsearch.cli.Command.mainWithoutErrorHandling(Command.java:122) [elasticsearch-5.2.2.jar:5.2.2]
+        at org.elasticsearch.cli.Command.main(Command.java:88) [elasticsearch-5.2.2.jar:5.2.2]
+        at org.elasticsearch.bootstrap.Elasticsearch.main(Elasticsearch.java:89) [elasticsearch-5.2.2.jar:5.2.2]
+        at org.elasticsearch.bootstrap.Elasticsearch.main(Elasticsearch.java:82) [elasticsearch-5.2.2.jar:5.2.2]
+
+#
