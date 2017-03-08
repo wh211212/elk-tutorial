@@ -1,0 +1,70 @@
+# install env && install elastic cluster
+
+CentOS 6.8 memory 4G cpu 4 cores
+
+1. download jdk
+http://www.oracle.com/technetwork/java/javase/downloads
+
+2. install jdk
+yum -y localinstall jdk-8u121-linux-x64.rpm
+
+3.add elastic repo
+rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
+echo '[elasticsearch-5.x]
+name=Elasticsearch repository for 5.x packages
+baseurl=https://artifacts.elastic.co/packages/5.x/yum
+gpgcheck=1
+gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
+enabled=1
+autorefresh=1
+type=rpm-md
+' | sudo tee /etc/yum.repos.d/elasticsearch.repo
+
+4. install elastic
+yum makecache && yum install elasticsearch -y
+
+5. start elastic
+/etc/init.d/elastic start && chkconfig elastic on
+
+# 6. setup client
+[root@elk-stack-1 ~]# egrep -v "^#|^$" /etc/elasticsearch/elasticsearch.yml
+cluster.name: es-cluster
+node.name: es-node-a1
+path.data: /var/lib/elasticsearch
+path.logs: /var/log/elasticsearch
+network.host: 192.168.1.121
+http.port: 9200
+discovery.zen.ping.unicast.hosts: ["elastic-a2", "elastic-a3"]
+discovery.zen.minimum_master_nodes: 3
+
+# env home dir
+[root@elk-stack-1 elasticsearch]#  egrep -v "^#|^$" /etc/sysconfig/elasticsearch
+ES_HOME=/usr/share/elasticsearch
+JAVA_HOME=/usr/java/jdk1.8.0_121
+CONF_DIR=/etc/elasticsearch
+DATA_DIR=/var/lib/elasticsearch
+LOG_DIR=/var/log/elasticsearch
+PID_DIR=/var/run/elasticsearch
+ES_STARTUP_SLEEP_TIME=5
+MAX_OPEN_FILES=65536
+MAX_MAP_COUNT=262144
+
+# max file descriptors [8192] for elasticsearch process is too low, increase to at least [65536]
+[root@elk-stack-1 elasticsearch]# egrep -v "^#|^$" /etc/security/limits.conf
+* soft nproc 2048
+* hard nproc 4096
+* soft nofile 65535
+* hard nofile 131072
+
+#  max number of threads [1024] for user [elasticsearch] is too low, increase to at least [2048]
+[root@elk-stack-1 elasticsearch]# egrep -v "^#|^$" /etc/security/limits.d/90-nproc.conf
+*          soft    nproc     2048
+root       soft    nproc     unlimited
+
+sed -i 's/1024/2048/g' /etc/security/limits.d/90-nproc.conf
+
+# bootstrap checks failed
+system call filters failed to install; check the logs and fix your configuration or disable system call filters at your own risk
+
+# es plugins
+vim _site/app.js

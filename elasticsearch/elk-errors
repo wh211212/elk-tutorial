@@ -16,4 +16,29 @@ java.lang.UnsupportedOperationException: seccomp unavailable: CONFIG_SECCOMP not
         at org.elasticsearch.bootstrap.Elasticsearch.main(Elasticsearch.java:89) [elasticsearch-5.2.2.jar:5.2.2]
         at org.elasticsearch.bootstrap.Elasticsearch.main(Elasticsearch.java:82) [elasticsearch-5.2.2.jar:5.2.2]
 
-#
+
+
+# 2. bootstrap checks failed
+system call filters failed to install; check the logs and fix your configuration or disable system call filters at your own risk
+
+！使用本地 IP（127.0.0.1）时，Elasticsearch 进入 dev mode，只能从本机访问，只显示警告。
+
+！使用局域网IP后，可以从其他机器访问，但启动时进入 production mode，并进行 bootstrap check，有可能对不合适的系统参数报错。
+
+bootstrap.system_call_filter: false
+
+
+echo "bootstrap.system_call_filter: false" >> /etc/elasticsearch/elasticsearch.yml
+
+
+# 3.failed to send join request to master
+
+
+
+# 4.[2017-03-06T17:11:30,199][WARN ][o.e.d.s.g.GroovyScriptEngineService] [groovy] scripts are deprecated, use [painless] scripts instead
+
+
+
+# 5. collector [index-stats-collector] failed to collect data
+
+when install x-pack
