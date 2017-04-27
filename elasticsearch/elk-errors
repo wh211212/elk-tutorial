@@ -52,3 +52,16 @@ when install x-pack
 
 # memory locking requested for elasticsearch process but memory is not locked
 #
+
+# detected index data in default.path.data [/var/lib/elasticsearch] where there should not be any;
+
+
+
+# Caused by: java.nio.file.AccessDeniedException: /etc/elasticsearch/x-pack/system_key
+
+
+chown root:elasticsearch /etc/elasticsearch/x-pack/system_key
+chmod 660 /etc/elasticsearch/x-pack/system_key
+
+#
+/etc/init.d/elasticsearch restart 
