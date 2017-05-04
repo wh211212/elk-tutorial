@@ -14,7 +14,7 @@ bin/elasticsearch-plugin remove x-pack
 
 #
 curl -XPUT -u elastic '192.168.10.51:9200/_xpack/security/user/elastic/_password' -H "Content-Type: application/json" -d '{
-  "password" : "anwg123."
+  "password" : "elasticpassword"
 }'
 
 curl -XPUT -u elastic '192.168.10.51:9200/_xpack/security/user/kibana/_password' -H "Content-Type: application/json" -d '{
@@ -24,7 +24,7 @@ curl -XPUT -u elastic '192.168.10.51:9200/_xpack/security/user/kibana/_password'
 curl -XPUT -u elastic '192.168.10.51:9200/_xpack/security/user/logstash_system/_password' -H "Content-Type: application/json" -d '{
   "password" : "logstashpassword"
 }'
-
+kibanapassword
 
 http://localhost:9200
 
@@ -55,3 +55,13 @@ curl -XPOST -u elastic '192.168.10.51:9200/_xpack/security/user/wanghui' -H "Con
 
 #
 curl -XGET -u elastic '192.168.10.51:9200/_xpack/security/user'
+
+curl -u elastic -H 'Content-Type: application/json' -XPUT 'http://192.168.10.51:9200/_template/packetbeat' -d@/etc/packetbeat/packetbeat.template.json
+
+
+-user user -pass password
+
+/usr/share/packetbeat/scripts/import_dashboards -es http://192.168.33.60:9200 -user elastic -pass elasticpassword
+#
+./scripts/import_dashboards -es https://xyz.found.io -user user -pass password
+./scripts/import_dashboards -es https://xyz.found.io -user admin -pass $(cat ~/pass-file)
